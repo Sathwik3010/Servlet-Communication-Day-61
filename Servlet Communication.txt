@@ -1,0 +1,50 @@
+Servlet Communications
+----------------------
+
+in general in web application development, it is not suggestible to distribute the complete application logic within a single web resource like a single Servlet, it is suggestible to distribute application logic over multiple server side resources like multiple servlets or jsp's.
+in the above context if we distribute application logic over multiple server side resources and if we want to process request then we have to stablish communication between server side resources for this we have to use Servlet-communication.
+to prepare servlet communication we will use the fallowing three approaches.
+
+1. Browser Servlet Communication.
+=================================
+in this we use request redirect by using sendRedirectMechanism (communicating from one servlet to other servlet)
+
+2. Web Component Communication.
+===============================
+the process of providing communication between more than one web component at the server machine is called web component communication.
+
+in general web component communication is available between  servlet to servlet
+							     servlet to jsp
+							     servlet to html
+							     jsp to jsp
+							     jsp to servlet
+							     jsp to html ... in web application we are able to achieve web component communication in the following 2 ways.
+	a) IncludeMechanism
+	include (ServletRequest request, ServletResponse response)
+	includes the content of a resource(servlet, jsp, html file) in the response.
+
+	for example we have two pages servlet1 and servlet2 and we are sending request from servlet1 to servlet2 by using the include() 	the final response will be send to the client by using servlet1 page only. (first servlet)
+
+	b) ForwardMechanism 
+	forward (ServletRequest request, ServletResponse response)
+	forward a request from a servlet to another servlet(servlet, jsp or html file) on the server.
+
+	for example we have two pages servlet1 and servlet2 and we are sending request from servlet1 to servlet2 by using the forward() 	the final response will be send to the client by using servlet2 page only. (last servlet)
+
+if we want to perform the above mechanism internally we must use RequestDispatcher Object. So that both include and forward mechanism are commonly called Request Dispatch Mechanism.
+
+TO achieve web component communications in web application we have to use the following steps.
+
+1. Get the RequestDispatcher Object.
+------------------------------------
+it is an Object it will provide a very good environment to include the target resource response into the present resource on forward the request from the present resource to the target resource .
+
+To get the request dispatcher object we have to use the following method.
+
+getRequestDispatcher()
+
+2. apply either include mechanism or forward mechanism by using the respective methods
+--------------------------------------------------------------------------------------
+
+
+3. Applet-Servlet Communication. // outdated not used
